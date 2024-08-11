@@ -17,9 +17,11 @@
      - ページ検索機能。文字入力にマッチするページを一覧表示
   ### **Page Connection**
      - 現在開いているページに関連するページを一覧表示
+     - ページコンテンツの下側ではなく、ポップアップに、下位階層へのリンク(Namespace)とページタグの表示。
 ### **Table of Contents with Sub-pages**
   - サブページも統合された目次機能。
     > ※ページ内でのスクロールではなく、ブロックへのズームインとして機能します。
+  - サブページの作成とブロックの移動をサポート
 
 </td>
 <td><img src="https://github.com/user-attachments/assets/acaa22a4-8b3d-4934-aea2-201d924f9c46" height="800px" /></td>
