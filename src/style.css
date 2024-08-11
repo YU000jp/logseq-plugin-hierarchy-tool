@@ -1,0 +1,210 @@
+#logseq-plugin-hierarchy-tool--twsToolbarPopup {
+    & button {
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+    }
+
+    & hr {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    & :is(input, select) {
+        background-color: var(--ls-quaternary-background-color);
+    }
+
+    & details {
+        font-size: small;
+        margin-top: 1.5em;
+
+        &>summary {
+            cursor: row-resize;
+        }
+    }
+}
+
+#twsToolbarHeaderSpace {
+    font-size: 0.9em;
+}
+
+:is(#twsToolbarHierarchyContainer, #twsToolbarTocContainer, #twsToolbarIncrementalContainer) {
+    overflow: auto;
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+:is(#twsToolbarHierarchy, #twsToolbarIncrementalContainer) {
+    max-height: 40vh;
+    overflow: auto;
+
+    & details.tws--hierarchy-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        padding-left: 1em;
+        padding-right: 0.3em;
+        padding-top: 0.8em;
+        padding-bottom: 0.3em;
+        background-color: var(--ls-quaternary-background-color);
+        font-weight: bold;
+
+        &>summary {
+            max-width: 90%;
+            white-space: nowrap;
+            overflow: auto;
+            text-overflow: ellipsis;
+            padding: 0.2em;
+        }
+    }
+
+    & button.tws--hierarchy-item {
+        display: flex;
+        flex-direction: row;
+        padding-left: 3em;
+        padding-right: 0.2em;
+        padding-top: 0.05em;
+        padding-bottom: 0.05em;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: var(--ls-quaternary-background-color);
+
+        &:first-child {
+            margin-top: 0.5em;
+        }
+    }
+}
+
+#tws--toggleHeader {
+    font-size: 0.85em;
+    opacity: 0.7;
+    margin-left: auto;
+    margin-right: auto;
+
+    & th {
+        padding: 0.5em;
+    }
+}
+
+& #twsToolbarSelectPage>select {
+    width: 100%;
+    font-size: 0.9em;
+}
+
+#twsToolbarTocContent {
+    margin-bottom: .8em;
+    font-size: .85em;
+    padding-bottom: 1.3em;
+    padding-left: 0.3em;
+    padding-right: 1.3em;
+    padding-top: 1em;
+    user-select: none;
+
+    &>div>div div {
+        padding: 0.2em 0.4em;
+    }
+
+    /* If the user makes changes, increase the level of detail, e.g. 'body #twsToolbarContent h1 { }'. */
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
+        height: 2.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+
+        &:hover {
+            border-radius: 2px;
+            background-color: var(--ls-block-highlight-color);
+            transition: background-color .2s cubic-bezier(0, 1, 0, 1);
+        }
+
+        &::before {
+            font-size: 12px;
+            padding: 1px;
+            opacity: 0.5;
+            color: var(--ls-active-secondary-color);
+            outline: 1px solid var(--ls-active-secondary-color);
+            margin-right: 0.9em;
+            z-index: auto;
+        }
+    }
+
+    & h1 {
+        font-size: 1.1em;
+        margin-top: .8em;
+
+        &.twsToolbarPageContent::before {
+            content: "h1";
+        }
+
+        &.twsToolbarSubPage::before {
+            content: ">>";
+        }
+    }
+
+    & h2 {
+        font-size: 1.2em;
+        padding-left: .6em;
+        outline: 1px solid var(--ls-quaternary-background-color);
+        border-bottom: unset;
+
+        &::before {
+            content: "h2";
+        }
+    }
+
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
+        margin-top: .5em;
+        /* display: list-item;
+        list-style-type: disc;
+        list-style-position: inside; */
+    }
+
+    & h3 {
+        padding-left: 1.2em;
+
+        &::before {
+            content: "h3";
+        }
+    }
+
+    & h4 {
+        padding-left: 2.0em;
+
+        &::before {
+            content: "h4";
+        }
+    }
+
+    & h5 {
+        padding-left: 2.8em;
+
+        &::before {
+            content: "h5";
+        }
+    }
+
+    & h6 {
+        padding-left: 3.6em;
+
+        &::before {
+            content: "h6";
+        }
+    }
+}
