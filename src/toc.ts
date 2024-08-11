@@ -1,15 +1,16 @@
 import { BlockEntity, PageEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 import removeMd from "remove-markdown"
-import { currentBlockUuid, currentPageName, currentPageOriginalName, currentPageUuid, updateBlockUuid, updateCurrentPage } from "."
+import { currentBlockUuid, currentPageName, currentPageOriginalName, currentPageUuid } from "."
 import { generatePageButton } from "./button"
 import { headerCellClassPageContent, headerCellClassSubPage, keyToolbarTocContent } from "./key"
+import { getPageAndUpdateCurrentPage } from "./lib"
 import { removeListWords, removeMarkdownAliasLink, removeMarkdownImage, removeMarkdownLink, removeProperties, replaceOverCharacters } from "./markdown"
 import { generateHierarchyList } from "./pageConnection"
 import { removePopup } from "./popup"
 import { generateSelectForQuickAccess } from "./quickPageSelect"
 import { createSubPageUserConfirm } from "./subPage"
-import { HeaderEntity, PageEntityNameAndUuid, blockContentWithChildren, pageEntityShort } from './type'
+import { HeaderEntity, PageEntityNameAndUuid, blockContentWithChildren } from './type'
 
 
 export const generateContent = async (
@@ -265,44 +266,7 @@ export const displayHeadersList = async (pageUuid?: PageEntity["uuid"]) => {
     if (popupElement) {
       popupElement.innerHTML = "" //リフレッシュ
 
-      if (pageUuid) {
-        const pageEntity = await logseq.Editor.getPage(pageUuid, { includeChildren: false }) as pageEntityShort | null
-        if (pageEntity)
-          await updateCurrentPage(
-            pageEntity.name,
-            pageEntity.originalName,
-            pageEntity.uuid,
-            pageEntity.properties)
-      } else {
-        const currentPageOrBlockEntity = await logseq.Editor.getCurrentPage() as PageEntity | BlockEntity | null
-        if (currentPageOrBlockEntity) {
-
-          if (currentPageOrBlockEntity.originalName) {
-            if (currentPageOrBlockEntity.originalName !== currentPageOriginalName)
-              await updateCurrentPage(
-                currentPageOrBlockEntity.name as PageEntity["name"],
-                currentPageOrBlockEntity.originalName as PageEntity["originalName"],
-                currentPageOrBlockEntity.uuid as PageEntity["uuid"],
-                currentPageOrBlockEntity.properties as PageEntity["properties"])
-          } else
-            if ((currentPageOrBlockEntity as BlockEntity).page) {
-              const pageEntity = await logseq.Editor.getPage((currentPageOrBlockEntity as BlockEntity).page.id, { includeChildren: false }) as pageEntityShort | null
-              if (pageEntity) {
-                // console.log("pageEntity is not null")
-                // console.log(pageEntity)
-                if (pageEntity.originalName
-                  && pageEntity.originalName !== currentPageOriginalName)
-                  await updateCurrentPage(
-                    pageEntity.name,
-                    pageEntity.originalName,
-                    pageEntity.uuid,
-                    pageEntity.properties)
-                updateBlockUuid((currentPageOrBlockEntity as BlockEntity).uuid)
-              } //end if pageEntity
-            } //end if currentPageOrBlockEntity
-
-        } //end if currentPageOrBlockEntity
-      } //end if pageUuid
+      pageUuid = await getPageAndUpdateCurrentPage(pageUuid)
 
       if (currentPageOriginalName === "") {
 

@@ -1,6 +1,7 @@
-import { currentPageName, currentPageOriginalName } from "."
+import { BlockEntity, PageEntity } from "@logseq/libs/dist/LSPlugin"
+import { currentPageName, currentPageOriginalName, currentPageUuid, updateBlockUuid, updateCurrentPage } from "."
 import { getQueryPageNamePattern } from "./query"
-import { queryItemsShort } from "./type"
+import { pageEntityShort, queryItemsShort } from "./type"
 
 
 export const removeProvideStyle = (className: string) => {
@@ -24,7 +25,7 @@ export const getPageHierarchyOrNameRelatedFromQuery = async (pageName: string): 
         : "keyword"
       return item
     }) as queryItemsShort
-  
+
   if (!result
     || result.length === 0) return []
   return result as queryItemsShort
@@ -69,4 +70,43 @@ export const sortGroupItemsByName = (group: { [key: string]: queryItemsShort }) 
       return 0
     })
 }
+export const getPageAndUpdateCurrentPage = async (pageUuid: string | undefined): Promise<string> => {
+  if (pageUuid) {
+    const pageEntity = await logseq.Editor.getPage(pageUuid, { includeChildren: false }) as pageEntityShort | null
+    if (pageEntity)
+      await updateCurrentPage(
+        pageEntity.name,
+        pageEntity.originalName,
+        pageEntity.uuid,
+        pageEntity.properties)
+  } else {
+    const currentPageOrBlockEntity = await logseq.Editor.getCurrentPage() as PageEntity | BlockEntity | null
+    if (currentPageOrBlockEntity) {
+      if (currentPageOrBlockEntity.originalName) {
+        if (currentPageOrBlockEntity.originalName !== currentPageOriginalName)
+          await updateCurrentPage(
+            currentPageOrBlockEntity.name as PageEntity["name"],
+            currentPageOrBlockEntity.originalName as PageEntity["originalName"],
+            currentPageOrBlockEntity.uuid as PageEntity["uuid"],
+            currentPageOrBlockEntity.properties as PageEntity["properties"])
+      }
+      else if ((currentPageOrBlockEntity as BlockEntity).page) {
+        const pageEntity = await logseq.Editor.getPage((currentPageOrBlockEntity as BlockEntity).page.id, { includeChildren: false }) as pageEntityShort | null
+        if (pageEntity) {
+          // console.log("pageEntity is not null")
+          // console.log(pageEntity)
+          if (pageEntity.originalName
+            && pageEntity.originalName !== currentPageOriginalName)
+            await updateCurrentPage(
+              pageEntity.name,
+              pageEntity.originalName,
+              pageEntity.uuid,
+              pageEntity.properties)
+          updateBlockUuid((currentPageOrBlockEntity as BlockEntity).uuid)
+        } //end if pageEntity
+      } //end if currentPageOrBlockEntity
+    } //end if currentPageOrBlockEntity
+  } //end if pageUuid
+  return currentPageUuid
+} //end_getPageEntity
 
