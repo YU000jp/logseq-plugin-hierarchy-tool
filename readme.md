@@ -45,6 +45,7 @@ Install from Logseq Marketplace
 1. press the ➕ button next to the page name to create a sub-page. Similar page names will be displayed as suggestions.
 1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
    - By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
+     > Note: After the block has been relocated, the "backgroundcolor" property indicating the block background colour may remain and the colour may not be applied." Go to the "backgroundcolor" page and rename it to "background-colour".
 1. Shortcut to toggle the pop-up (default: `Ctrl/Cmd + F1`)
 
 #### Note
