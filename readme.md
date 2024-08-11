@@ -52,6 +52,9 @@ Install from Logseq Marketplace
 - Due to content conflicts, the display of hierarchy and page tags in the page content is hidden in the plugin settings beforehand.
 - Sidebars and pop-ups are displayed overlapping. To use the sidebar, close the pop-up.
 - Loading may be slow if the amount of information on the page is too large or if there are too many page embeds in the content.
+- If you have other plug-ins with table of contents functionality, be sure to turn it off.
+- When using this plugin, be sure to turn off the 'Page View UI' functionality of Page-tags and Hierarchy plugin.
+- If using the Side Block plugin, in the plugin settings, add "`#.side(-[a-z])? `" in the input field.
 
 ---
 
