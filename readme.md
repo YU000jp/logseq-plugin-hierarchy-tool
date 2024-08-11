@@ -45,6 +45,7 @@ Install from Logseq Marketplace
 1. press the ➕ button next to the page name to create a sub-page. Similar page names will be displayed as suggestions.
 1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
    - By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
+1. Shortcut to toggle the pop-up (default: `Ctrl/Cmd + F1`)
 
 #### Note
 
@@ -68,6 +69,7 @@ Install from Logseq Marketplace
 1. [x] Added button to create a sub-page.
 1. [x] Added support for displaying a list of page tags and hierarchies (replaces the display of page tags and hierarchies in the page content).
 1. [x] Incremental Page Search in dialog that create sub-page
+1. [x] Shortcut to enable toggling of the pop-up
 
 ## Prior art & Credit
 

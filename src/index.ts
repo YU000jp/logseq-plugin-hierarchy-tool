@@ -1,8 +1,8 @@
 import '@logseq/libs' //https://plugins-doc.logseq.com/
 import { BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
-import { setup as l10nSetup } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
+import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import { clickRefreshButton } from "./button"
-import { icon, keyCreateSubPageButton, keyCssHideHierarchyInPageContent, keyCssHidePageTagsInPageContent, keyRefreshButton, keySettingsButton, keyToggleH1, keyToggleH2, keyToggleH3, keyToggleH4, keyToggleH5, keyToggleH6, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbar } from './key'
+import { icon, keyCommand, keyCreateSubPageButton, keyCssHideHierarchyInPageContent, keyCssHidePageTagsInPageContent, keyRefreshButton, keySettingsButton, keyToggleH1, keyToggleH2, keyToggleH3, keyToggleH4, keyToggleH5, keyToggleH6, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbar, keyToolbarPopupFull } from './key'
 import { removeProvideStyle } from './lib'
 import { openPopupFromToolbar, removePopup } from './popup'
 import { settingsTemplate } from "./settings"
@@ -171,6 +171,19 @@ const main = async () => {
 
 
   onBlockChanged() //ブロック変更時の処理
+
+
+  // コマンドパレットにコマンドを登録
+  logseq.App.registerCommandPalette({
+    key: keyCommand,
+    label: `${t("Toggle Hierarchy Tool Popup")}`,
+    keybinding: { binding: 'mod+f1' }
+  }, async () => {
+    if (parent.document.getElementById(keyToolbarPopupFull))
+      removePopup()
+    else
+      openPopupFromToolbar()
+  })
 
 
   //ページ読み込み時に実行コールバック
