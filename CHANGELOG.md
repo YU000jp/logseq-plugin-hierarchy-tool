@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.0.1...v1.0.2) (2024-08-11)
+
+
+### Bug Fixes
+
+* **bug:** change icon ([e67e75f](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/e67e75f27cd16f8eb57e5f95b2150dadb64ef58b))
+
 ## [1.0.1](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.0.0...v1.0.1) (2024-08-11)
 
 
