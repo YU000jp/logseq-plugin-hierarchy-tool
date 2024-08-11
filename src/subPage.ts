@@ -5,6 +5,8 @@ import { currentPageOriginalName } from "."
 import { confirmDialog } from "./lib"
 import { pageEntityShort } from "./type"
 
+
+// ヘッダーブロックを、サブページに移設する
 export const createSubPageUserConfirm = async (content: string, uuid: string, flag?: { newPageName?: string }) => {
   logseq.showMainUI({ autoFocus: true })
   try {
@@ -99,6 +101,9 @@ export const createSubPageUserConfirm = async (content: string, uuid: string, fl
     logseq.hideMainUI()
   }
 }
+
+
+// 現在のページに、サブページを作成する
 export const createSubPage = async () => {
   logseq.showMainUI({ autoFocus: true })
   try {
@@ -159,3 +164,4 @@ export const createSubPage = async () => {
     logseq.hideMainUI()
   }
 }
+
