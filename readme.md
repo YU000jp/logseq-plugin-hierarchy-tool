@@ -49,6 +49,7 @@ Install from Logseq Marketplace
 
 #### Note
 
+- Due to content conflicts, the display of hierarchy and page tags in the page content is hidden in the plugin settings beforehand.
 - Sidebars and pop-ups are displayed overlapping. To use the sidebar, close the pop-up.
 - Loading may be slow if the amount of information on the page is too large or if there are too many page embeds in the content.
 
