@@ -103,7 +103,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
         title: t("Remove words from table of contents"),
         type: "string",
         inputAs: "textarea",
-        default: "",
+        default: "#\.side(-[a-z])?", // Side Block プラグイン用
         // 改行区切り
         // 記入例:
         // #tagのような文字列
