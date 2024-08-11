@@ -1,4 +1,4 @@
-import { headerCellClassPageContent, headerCellClassSubPage, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbarHierarchyContainer, keyToolbarIncrementalContainer, keyToolbarTocContainer, keyToolbarTocContent, twsToggle } from "./key"
+import { headerCellClassPageContent, headerCellClassSubPage, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbarHierarchyContainer, keyToolbarIncrementalContainer, keyToolbarTocContainer, keyToolbarTocContent, htToggle } from "./key"
 
 
 let processingDetails = false // detailsのトグル処理中フラグ 連続で処理されないようにする
@@ -68,7 +68,7 @@ export const hideHeaderFromList = (headerName: string) => {
   const checkButton = parent.document.getElementById(
     headerName === "subPage" ?
       keyToggleSubPage
-      : `${twsToggle}${headerName.toUpperCase()}`
+      : `${htToggle}${headerName.toUpperCase()}`
   ) as HTMLInputElement | null
 
   if (checkButton)

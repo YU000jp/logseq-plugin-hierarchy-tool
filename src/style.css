@@ -1,4 +1,4 @@
-#logseq-plugin-hierarchy-tool--twsToolbarPopup {
+#logseq-plugin-hierarchy-tool--hierarchyToolPopup {
     & button {
         opacity: 0.7;
 
@@ -27,11 +27,11 @@
     }
 }
 
-#twsToolbarHeaderSpace {
+#hierarchyToolHeaderSpace {
     font-size: 0.9em;
 }
 
-:is(#twsToolbarHierarchyContainer, #twsToolbarTocContainer, #twsToolbarIncrementalContainer) {
+:is(#hierarchyToolHierarchyContainer, #hierarchyToolTocContainer, #hierarchyToolIncrementalContainer) {
     overflow: auto;
     opacity: 0.8;
 
@@ -40,11 +40,11 @@
     }
 }
 
-:is(#twsToolbarHierarchy, #twsToolbarIncrementalContainer) {
+:is(#hierarchyToolHierarchy, #hierarchyToolIncrementalContainer) {
     max-height: 40vh;
     overflow: auto;
 
-    & details.tws--hierarchy-group {
+    & details.ht--hierarchy-group {
         display: flex;
         flex-direction: column;
         margin-top: 0.3em;
@@ -65,7 +65,7 @@
         }
     }
 
-    & button.tws--hierarchy-item {
+    & button.ht--hierarchy-item {
         display: flex;
         flex-direction: row;
         padding-left: 3em;
@@ -82,7 +82,7 @@
     }
 }
 
-#tws--toggleHeader {
+#ht--toggleHeader {
     font-size: 0.85em;
     opacity: 0.7;
     margin-left: auto;
@@ -93,12 +93,12 @@
     }
 }
 
-& #twsToolbarSelectPage>select {
+& #hierarchyToolSelectPage>select {
     width: 100%;
     font-size: 0.9em;
 }
 
-#twsToolbarTocContent {
+#hierarchyToolTocContent {
     margin-bottom: .8em;
     font-size: .85em;
     padding-bottom: 1.3em;
@@ -111,7 +111,7 @@
         padding: 0.2em 0.4em;
     }
 
-    /* If the user makes changes, increase the level of detail, e.g. 'body #twsToolbarContent h1 { }'. */
+    /* If the user makes changes, increase the level of detail, e.g. 'body #hierarchyToolContent h1 { }'. */
     & h1,
     & h2,
     & h3,
@@ -145,11 +145,11 @@
         font-size: 1.1em;
         margin-top: .8em;
 
-        &.twsToolbarPageContent::before {
+        &.hierarchyToolPageContent::before {
             content: "h1";
         }
 
-        &.twsToolbarSubPage::before {
+        &.hierarchyToolSubPage::before {
             content: ">>";
         }
     }
