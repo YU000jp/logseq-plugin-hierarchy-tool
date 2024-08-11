@@ -37,7 +37,7 @@ Logseq マーケットプレイスからインストール
 
 - ツールバーのボタンが、最初のトグルになっています。
    - ポップアップが表示されている間、ユーザーがページを移動したら、そのページの目次に切り替わります。
-   > 最初、このボタンはLogseqによって非表示にされています。ツールバーのこのボタン (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) をクリックし、その後、この (![image](https://github.com/user-attachments/assets/1121f7af-b4f6-4bec-bfd3-1f3d2b97745e)) を選択します。その後、ツールバーに 🛢️ ボタンが表示されます。
+   > 最初、このボタンはLogseqによって非表示にされています。ツールバーのこのボタン (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) をクリックし、その後、この ![image](https://github.com/user-attachments/assets/5445bf64-6c5c-4dcf-981c-ad3ec176930f) を選択します。その後、ツールバーに 🏢 ボタンが表示されます。
 - 目次では、ブロックをズームインで開きますが、ページコネクション内では、階層の上下移動のために、ページが直接開かないようになっています。(Ctrl+クリックでページとして開きます)
 
 

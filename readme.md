@@ -36,7 +36,8 @@ Install from Logseq Marketplace
 
 - The button on the toolbar is the first toggle.
    - While the pop-up is displayed, if the user navigates to a page, it switches to the table of contents for that page.
-   > Initially, this button is hidden by Logseq. This button on the toolbar (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. Click on it and then click on this (![image](https://github.com/user-attachments/assets/1121f7af-b4f6-4bec-bfd3-1f3d2b97745e)). The 🛢️ button will then appear on the toolbar.
+   > Initially, this button is hidden by Logseq. This button on the toolbar (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. Click on it and then click on this ![image](https://github.com/user-attachments/assets/5445bf64-6c5c-4dcf-981c-ad3ec176930f)
+. The 🏢 button will then appear on the toolbar.
 - In the table of contents, the block is opened by zooming in, but within Page Connections, the page does not open directly for moving up or down the hierarchy. (Ctrl+click to open as a page).
 
 
