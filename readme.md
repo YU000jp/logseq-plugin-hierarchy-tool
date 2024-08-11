@@ -2,8 +2,6 @@
 
 - A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
 
-- TOC function in left sidebar >>> [Left Sidebar Enhance](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance) plugin
-
 <div align="right">
  
 [English](https://github.com/YU000jp/logseq-plugin-hierarchy-tool) / [日本語](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-hierarchy-tool)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases) [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-hierarchy-tool?color=blue)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/LICENSE) [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-hierarchy-tool/total.svg)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases)
@@ -11,6 +9,8 @@
  </div>
 
 ## Overview
+
+<table><tr><td>
 
 - Find the page you are looking for by relying on hierarchy, without opening the page.
   ### **Incremental Page Search**
@@ -21,17 +21,9 @@
    - Table of contents functionality with integrated sub-pages as well.
      > Functions as a zoom-in to a block, rather than scrolling within a page.
 
-### TODO
-
-1. [x] Porting of table of contents functionality
-1. [x] Currently implemented in pop-up view.
-1. [x] Display of subordinate levels within the table of contents
-1. [x] Support for zoomed pages (block zoom instead of scrolling)
-1. [x] Added ability to search for pages using pattern matching by page name.
-1. [x] add ability to turn blocks with headers into sub-pages (Ctrl-click on header in table of contents) 1.
-1. [x] Added button to create a sub-page.
-1. [x] Added support for displaying a list of page tags and hierarchies (replaces the display of page tags and hierarchies in the page content).
-1. [ ] Show a preview of the markdown when hovering over it, e.g. in the table of contents
+</td>
+<td><img src="https://github.com/user-attachments/assets/acaa22a4-8b3d-4934-aea2-201d924f9c46" height="800px" /></td>
+</tr></table>
 
 ---
 
@@ -45,6 +37,19 @@ Install from Logseq Marketplace
 - The button on the toolbar is the first toggle.
    - While the pop-up is displayed, if the user navigates to a page, it switches to the table of contents for that page.
    > Initially, this button is hidden by Logseq. This button on the toolbar (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. Click on it and then click on this (![image](https://github.com/user-attachments/assets/1121f7af-b4f6-4bec-bfd3-1f3d2b97745e)). The 🛢️ button will then appear on the toolbar.
+- In the table of contents, the block is opened by zooming in, but within Page Connections, the page does not open directly for moving up or down the hierarchy. (Ctrl+click to open as a page).
+
+
+#### Tip
+
+1. press the ➕ button next to the page name to create a sub-page. Similar page names will be displayed as suggestions.
+1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
+   - By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
+
+#### Note
+
+- Sidebars and pop-ups are displayed overlapping. To use the sidebar, close the pop-up.
+- Loading may be slow if the amount of information on the page is too large or if there are too many page embeds in the content.
 
 ---
 
@@ -52,7 +57,22 @@ Install from Logseq Marketplace
 
 > Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/discussions) tab to ask and find this kind of things.
 
+### TODO
+
+1. [x] Porting of table of contents functionality
+1. [x] Currently implemented in pop-up view.
+1. [x] Display of subordinate levels within the table of contents
+1. [x] Support for zoomed pages (block zoom instead of scrolling)
+1. [x] Added ability to search for pages using pattern matching by page name. (Incremental Page Search)
+1. [x] add ability to turn blocks with headers into sub-pages (Ctrl-click on header in table of contents) 1.
+1. [x] Added button to create a sub-page.
+1. [x] Added support for displaying a list of page tags and hierarchies (replaces the display of page tags and hierarchies in the page content).
+1. [x] Incremental Page Search in dialog that create sub-page
+
 ## Prior art & Credit
 
+- TOC > [Page-level TOC plugin](https://github.com/benjypng/logseq-toc-plugin)
+- TOC > [TOC Generator plugin](https://github.com/sethyuan/logseq-plugin-tocgen)
+- TOC in left sidebar > [Left Sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
 - Icon > [icooon-mono.com](https://icooon-mono.com/10933-%e3%83%89%e3%83%a9%e3%83%a0%e7%bc%b6%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b32/)
 - Author > [@YU000jp](https://github.com/YU000jp)
