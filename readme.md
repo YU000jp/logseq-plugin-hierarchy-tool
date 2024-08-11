@@ -24,7 +24,7 @@
    - Support for creating a sub-page and moving blocks
 
 </td>
-<td><img src="https://github.com/user-attachments/assets/acaa22a4-8b3d-4934-aea2-201d924f9c46" height="800px" /></td>
+<td><img src="https://github.com/user-attachments/assets/acaa22a4-8b3d-4934-aea2-201d924f9c46" height="800px" width="350px" /></td>
 </tr></table>
 
 ---
