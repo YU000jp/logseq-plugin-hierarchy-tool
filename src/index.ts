@@ -143,7 +143,7 @@ const main = async () => {
   //ツールバーにポップアップ画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
     key: keyToolbar,
-    template: `<div><a class="button icon" id="${keyToolbar}" data-on-click="${keyToolbar}" style="font-size: 16px">${icon}</a></div>`,
+    template: `<div><a class="button icon" id="${keyToolbar}" data-on-click="${keyToolbar}" style="font-size: 18px">${icon}</a></div>`,
   })
 
 

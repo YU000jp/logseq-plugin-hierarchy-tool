@@ -1,6 +1,6 @@
 export const pluginName = "Hierarchy Tool"
 export const githubReadmeUrl = "https://github.com/YU000jp/logseq-plugin-hierarchy-tool"
-export const icon = "🛢️"
+export const icon = "🏢"
 export const keyToolbar = "hierarchyTool"
 export const keyToolbarPopup = keyToolbar + "Popup"
 export const keyToolbarPopupFull = `logseq-plugin-hierarchy-tool--${keyToolbarPopup}`

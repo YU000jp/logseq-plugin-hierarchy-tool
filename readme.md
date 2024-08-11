@@ -81,5 +81,5 @@ Install from Logseq Marketplace
 - TOC > [Page-level TOC plugin](https://github.com/benjypng/logseq-toc-plugin)
 - TOC > [TOC Generator plugin](https://github.com/sethyuan/logseq-plugin-tocgen)
 - TOC in left sidebar > [Left Sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
-- Icon > [icooon-mono.com](https://icooon-mono.com/10933-%e3%83%89%e3%83%a9%e3%83%a0%e7%bc%b6%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b32/)
+- Icon > [icooon-mono.com](https://icooon-mono.com/10928-%e3%83%93%e3%83%ab%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3/)
 - Author > [@YU000jp](https://github.com/YU000jp)
