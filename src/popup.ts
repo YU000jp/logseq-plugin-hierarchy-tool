@@ -38,7 +38,7 @@ export const openPopupFromToolbar = () => {
           <details id="${keyToolbarIncrementalContainer}"${logseq.settings?.[keyToolbarIncrementalContainer] as boolean === true ? ' open="true"' : ""} title="${t("Search for page names matching the word")}">
             <summary>${t("Incremental Page Search")}</summary>
             <p id="${keyToolbarIncrementalSearchBox}"></p>
-            <div id="${keyToolbarIncrementalSearchResult}" title="${t("Clicking on a page name is reflected in 'Page Connection'.")}\n${t("Ctrl-click to open the page")}"></div>
+            <div id="${keyToolbarIncrementalSearchResult}" title="${t("Clicking on a page name is reflected in 'Page Connection'.")}\n${t("Ctrl+click to open the page")}"></div>
           </details>
           <hr/>
           <div style="float: right;">
@@ -53,7 +53,7 @@ export const openPopupFromToolbar = () => {
             </tr>
           </table>
           <details id="${keyToolbarHierarchyContainer}"${logseq.settings?.[keyToolbarHierarchyContainer] as boolean === true ? ' open="true"' : ""}>
-            <summary title="${t("Run queries on the page name to find pages related to it.") + "\n" + t("Ctrl-click to open the page")}">${t("Page Connection")}</summary>
+            <summary title="${t("Run queries on the page name to find pages related to it.") + "\n" + t("Ctrl+click to open the page")}">${t("Page Connection")}</summary>
             <div id="${keyToolbarHierarchy}"</div>
           </details>
           <details id="${keyToolbarTocContainer}"${logseq.settings?.[keyToolbarTocContainer] as boolean === true ? ' open="true"' : ""} title="${t("Instead of scrolling through the page content, it opens as a block zoom.")}\n${t("Click to open the page")}">

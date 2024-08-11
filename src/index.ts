@@ -1,5 +1,6 @@
 import '@logseq/libs' //https://plugins-doc.logseq.com/
 import { BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
+import { setup as l10nSetup } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import { clickRefreshButton } from "./button"
 import { icon, keyCreateSubPageButton, keyCssHideHierarchyInPageContent, keyCssHidePageTagsInPageContent, keyRefreshButton, keySettingsButton, keyToggleH1, keyToggleH2, keyToggleH3, keyToggleH4, keyToggleH5, keyToggleH6, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbar } from './key'
 import { removeProvideStyle } from './lib'
@@ -9,25 +10,25 @@ import cssStyleString from "./style.css?inline"
 import { createSubPage } from './subPage'
 import { displayHeadersList } from './toc'
 import { hideHeaderFromList, toggleStyleForHideBlock } from "./toggle"
-// import af from "./translations/af.json"
-// import de from "./translations/de.json"
-// import es from "./translations/es.json"
-// import fr from "./translations/fr.json"
-// import id from "./translations/id.json"
-// import it from "./translations/it.json"
-// import ja from "./translations/ja.json"
-// import ko from "./translations/ko.json"
-// import nbNO from "./translations/nb-NO.json"
-// import nl from "./translations/nl.json"
-// import pl from "./translations/pl.json"
-// import ptBR from "./translations/pt-BR.json"
-// import ptPT from "./translations/pt-PT.json"
-// import ru from "./translations/ru.json"
-// import sk from "./translations/sk.json"
-// import tr from "./translations/tr.json"
-// import uk from "./translations/uk.json"
-// import zhCN from "./translations/zh-CN.json"
-// import zhHant from "./translations/zh-Hant.json"
+import af from "./translations/af.json"
+import de from "./translations/de.json"
+import es from "./translations/es.json"
+import fr from "./translations/fr.json"
+import id from "./translations/id.json"
+import it from "./translations/it.json"
+import ja from "./translations/ja.json"
+import ko from "./translations/ko.json"
+import nbNO from "./translations/nb-NO.json"
+import nl from "./translations/nl.json"
+import pl from "./translations/pl.json"
+import ptBR from "./translations/pt-BR.json"
+import ptPT from "./translations/pt-PT.json"
+import ru from "./translations/ru.json"
+import sk from "./translations/sk.json"
+import tr from "./translations/tr.json"
+import uk from "./translations/uk.json"
+import zhCN from "./translations/zh-CN.json"
+import zhHant from "./translations/zh-Hant.json"
 
 //現在のページ名とuuidの保持
 export let currentPageOriginalName: PageEntity["originalName"] = ""
@@ -125,12 +126,12 @@ const cssCodeHidePageTagsInPageContent = `
 /* main */
 const main = async () => {
 
-  // //多言語化 L10N
-  // await l10nSetup({
-  //   builtinTranslations: {//Full translations
-  //     ja, af, de, es, fr, id, it, ko, "nb-NO": nbNO, nl, pl, "pt-BR": ptBR, "pt-PT": ptPT, ru, sk, tr, uk, "zh-CN": zhCN, "zh-Hant": zhHant
-  //   }
-  // })
+  //多言語化 L10N
+  await l10nSetup({
+    builtinTranslations: {//Full translations
+      ja, af, de, es, fr, id, it, ko, "nb-NO": nbNO, nl, pl, "pt-BR": ptBR, "pt-PT": ptPT, ru, sk, tr, uk, "zh-CN": zhCN, "zh-Hant": zhHant
+    }
+  })
 
   // 設定の読み込み
   logseq.useSettingsSchema(settingsTemplate())
