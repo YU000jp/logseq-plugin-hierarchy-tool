@@ -57,7 +57,9 @@ Install from Logseq Marketplace
 - If you have other plug-ins with table of contents functionality, be sure to turn it off.
 - When using this plugin, be sure to turn off the 'Page View UI' functionality of Page-tags and Hierarchy plugin.
 - If using the Side Block plugin, in the plugin settings, add "`#.side(-[a-z])? `" in the input field.
-- In the table of contents, only headers on the first level are detected.
+- In table of contents
+  - Only headers on the first level are detected.
+  - For automatic headers, the "heading:: true" property is used. In this case, they are not displayed in there.
 
 ---
 
