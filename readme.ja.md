@@ -75,7 +75,8 @@ Logseq マーケットプレイスからインストール
 1. [x] ページタグや階層の一覧表示に対応 (ページコンテンツ内のページタグや階層の表示を代替する役割をもつ)
 1. [x] サブページを作成するダイアログでのインクリメンタルサーチ (類似ページの検索)
 1. [x] ショートカットで、ポップアップをトグル可能にする
-
+1. [ ] Sticky Heading スタイル https://github.com/zhouhua/obsidian-sticky-headings
+2. 
 ## 先行技術とクレジット
 
 - TOC > [Page-level TOC プラグイン](https://github.com/benjypng/logseq-toc-plugin)

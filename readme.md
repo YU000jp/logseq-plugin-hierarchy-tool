@@ -74,6 +74,7 @@ Install from Logseq Marketplace
 1. [x] Added support for displaying a list of page tags and hierarchies (replaces the display of page tags and hierarchies in the page content).
 1. [x] Incremental Page Search in dialog that create sub-page
 1. [x] Shortcut to enable toggling of the pop-up
+1. [ ] Sticky Heading Style https://github.com/zhouhua/obsidian-sticky-headings
 
 ## Prior art & Credit
 
