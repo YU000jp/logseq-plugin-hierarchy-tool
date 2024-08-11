@@ -5,9 +5,10 @@ import { t } from 'logseq-l10n'
 // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate = (): SettingSchemaDesc[] => [
 
+
     {// 共通設定
         key: "heading0000",
-        title: t("Common Settings"),
+        title: t("Common") + " " + t("Settings"),
         type: "heading",
         description: "",
         default: "",
@@ -51,6 +52,14 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     },
 
 
+
+    {// Query Settings
+        key: "heading0010",
+        title: t("Query") + " " + t("Settings"),
+        type: "heading",
+        description: "",
+        default: "",
+    },
     {//ページ名に階層が含まれている場合、その最後の階層をもとにクエリーを取得する
         key: "queryLastHierarchy",
         title: t("Query the last hierarchy if the page name contains a hierarchy"),
@@ -81,6 +90,14 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     },
 
 
+
+    {//Table of Contents Settings
+        key: "heading0020",
+        title: t("Table of Contents") + " " + t("Settings"),
+        type: "heading",
+        description: "",
+        default: "",
+    },
     {//Table of Contents、削除する単語リスト 改行区切り
         key: "tocRemoveWordList",
         title: t("Remove words from table of contents"),
