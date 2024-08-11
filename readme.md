@@ -1,6 +1,8 @@
 # Logseq Plugin: Hierarchy Tool (TOC)
 
-- A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
+- Powerful tool for users who use **hierarchy** in Logseq.
+  1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
+  1. A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
 
 <div align="right">
  
@@ -46,9 +48,8 @@ Install from Logseq Marketplace
 #### Tip
 
 1. press the ➕ button next to the page name to create a sub-page. Similar page names will be displayed as suggestions.
-1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
-   - By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
-     > Note: After the block has been relocated, the "backgroundcolor" property indicating the block background colour may remain and the colour may not be applied." Go to the "backgroundcolor" page and rename it to "background-colour".
+1. By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
+   > Note: After the block has been relocated, the "backgroundcolor" property indicating the block background colour may remain and the colour may not be applied." Go to the "backgroundcolor" page and rename it to "background-colour".
 1. Shortcut to toggle the pop-up (default: `Ctrl/Cmd + F1`)
 
 #### Note
@@ -64,6 +65,10 @@ Install from Logseq Marketplace
   - For automatic headers, the "heading:: true" property is used. In this case, they are not displayed in there.
 
 ---
+
+## Demo
+
+![HierarchyTool](https://github.com/user-attachments/assets/f2438a2a-019e-4e7a-bff1-b699a5ebabc3)
 
 ## Showcase / Questions / Ideas / Help
 
@@ -82,6 +87,7 @@ Install from Logseq Marketplace
 1. [x] Incremental Page Search in dialog that create sub-page
 1. [x] Shortcut to enable toggling of the pop-up
 1. [ ] Sticky Heading Style https://github.com/zhouhua/obsidian-sticky-headings
+1. [ ] Adjustments need to be made after the db version of Logseq is released. ("heading:: true" and other properties).
 
 ## Prior art & Credit
 
