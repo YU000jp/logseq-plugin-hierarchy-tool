@@ -4,6 +4,8 @@ import removeMd from "remove-markdown"
 import { currentPageOriginalName } from "."
 import { confirmDialog } from "./lib"
 import { pageEntityShort } from "./type"
+import { searchResult } from "./incrementalSearch"
+import { keyDialogCreateSubPageSearchResult, keyToolbarIncrementalSearchResult } from "./key"
 
 
 // ヘッダーブロックを、サブページに移設する
@@ -103,6 +105,7 @@ export const createSubPageUserConfirm = async (content: string, uuid: string, fl
 }
 
 
+let processingSubPageIncrementalSearch = false // インクリメントサーチ処理中フラグ 連続で処理されないようにする
 // 現在のページに、サブページを作成する
 export const createSubPage = async () => {
   logseq.showMainUI({ autoFocus: true })
@@ -119,6 +122,30 @@ export const createSubPage = async () => {
     if (checkboxMsg)
       checkboxMsg.style.display = "none"
 
+    // #inputの値が変化したら、#incrementalSearchResultに検索結果を表示する
+    const input = document.getElementById("input") as HTMLInputElement | null
+    if (input)
+      input.addEventListener("input", function (this) {
+        if (processingSubPageIncrementalSearch) return
+        processingSubPageIncrementalSearch = true
+        setTimeout(() => processingSubPageIncrementalSearch = false,
+          200)
+
+        setTimeout(() => {
+          // 最後に/がある場合は、それを削除して検索する
+          const value = this.value.includes("/") ? // 「/」が含まれている場合
+            this.value.endsWith("/") ? // 最後に/がある場合
+              // 最後の/より前の階層の文字列を取得する
+              this.value.substring(0, this.value.lastIndexOf("/"))
+              // 最後の/より後ろの文字列を取得する
+              : this.value.substring(this.value.lastIndexOf("/") + 1)
+            // 「/」が含まれていない場合
+            : this.value
+          searchResult(value, document.getElementById(keyDialogCreateSubPageSearchResult) as HTMLElement | null)
+        }, 220)
+
+
+      })
     // confirm
     if (await confirmDialog(
       t("Do you want to create a new sub-page?"),

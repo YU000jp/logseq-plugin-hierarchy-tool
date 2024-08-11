@@ -15,46 +15,48 @@ export const createSearchBox = () => {
     input.type = "text"
     input.placeholder = t("Search word")
 
-    input.addEventListener("input", async () => {
+    input.addEventListener("input", function (this) {
       if (processingIncrementalSearch) return
       processingIncrementalSearch = true
       setTimeout(() => processingIncrementalSearch = false,
         200)
 
       setTimeout(async () => {
-        // インクリメントサーチ実行
-        // #keyToolbarIncrementalSearchResultに検索結果を表示
-        const searchResult = parent.document.getElementById(keyToolbarIncrementalSearchResult) as HTMLElement | null
-        if (searchResult) {
-          searchResult.innerHTML = "" //リフレッシュ
-
-          const searchWord = input.value
-          if (searchWord === "")
-            return
-
-          const getArrayFromQuery = await getPageHierarchyOrNameRelatedFromQuery(searchWord) as queryItemsShort
-          if (getArrayFromQuery.length === 0)
-            return
-
-          const group = getArrayFromQuery.reduce((acc, item) => {
-            if (!acc["Keyword"]) acc["Keyword"] = []
-            acc["Keyword"].push(item)
-            return acc
-          }, {} as { [key: string]: queryItemsShort })
-
-          // グループ内のアイテムを名前順にソート
-          sortGroupItemsByName(group)
-
-          // グループを表示
-          if (group["Keyword"] &&
-            group["Keyword"].length > 0)
-            renderGroupElement("Keyword", searchResult, group["Keyword"], searchWord)
-
-        }//end if
-      }, 150)
+        searchResult(this.value, parent.document.getElementById(keyToolbarIncrementalSearchResult) as HTMLElement | null)
+      }, 220)
 
     })//end addEventListener
     searchBox.appendChild(input)
   }//end if
 }//end createSearchBox
 
+
+export const searchResult = async (searchWord: string, element: HTMLElement | null) => {
+
+  // インクリメントサーチ実行
+  if (element) {
+    element.innerHTML = "" //リフレッシュ
+
+    if (searchWord === "") // 検索ワードが空の場合は何もしない (空になる)
+      return
+
+    const getArrayFromQuery = await getPageHierarchyOrNameRelatedFromQuery(searchWord) as queryItemsShort
+    if (getArrayFromQuery.length === 0)
+      return
+
+    const group = getArrayFromQuery.reduce((acc, item) => {
+      if (!acc["Keyword"]) acc["Keyword"] = []
+      acc["Keyword"].push(item)
+      return acc
+    }, {} as { [key: string]: queryItemsShort })
+
+    // グループ内のアイテムを名前順にソート
+    sortGroupItemsByName(group)
+
+    // グループを表示
+    if (group["Keyword"] &&
+      group["Keyword"].length > 0)
+      renderGroupElement("Keyword", element, group["Keyword"], searchWord)
+
+  }//end if
+}//end searchResult

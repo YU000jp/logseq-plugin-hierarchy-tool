@@ -16,7 +16,25 @@
     <button id="button-ok">OK</button>
     <button id="button-cancel">Cancel</button><br />
     <p><span id="checkboxMsg"></span><input id="checkbox" type="checkbox" /></p>
+    <div id="incrementalSearchResult"></div>
   </dialog>
+  <style>
+    #incrementalSearchResult {
+      max-height: 60vh;
+
+      &>details>details {
+        margin-left: 20px;
+
+        &>summary {
+          margin-top: 6px;
+        }
+
+        &>div {
+          margin-left: 20px;
+        }
+      }
+    }
+  </style>
 </body>
 
 </html>
