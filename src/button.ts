@@ -29,7 +29,7 @@ export const generatePageButton = () => {
         let parentPageName = ""
         for (const pageName of pageNames) {
           // ページを開くボタン
-          const openButton = document.createElement("button")
+          const openButton = document.createElement("a")
           openButton.textContent = parentPageName === "" ?
             pageName
             : "/" + pageName
@@ -73,11 +73,12 @@ export const generatePageButton = () => {
 
 
 export const createOpenButton = (buttonText: string, title: string) => {
-  const openButton = document.createElement("button")
+  const openButton = document.createElement("a")
   openButton.title = title
   openButton.textContent = buttonText
   openButton.className = "button"
   openButton.style.whiteSpace = "nowrap"
+  openButton.style.backgroundColor = "var(--ls-secondary-background-color)"
   openButton.addEventListener("click", ({ shiftKey }) => {
     updateBlockUuid() //ブロックuuidをリセットする
     if (shiftKey === true)
