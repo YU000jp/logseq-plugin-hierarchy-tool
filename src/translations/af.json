@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Hierdie zoomblok sal opgehef word.",
   "Toggle for hide": "Wissel vir wegkruip",
   "Zooming in on the block...": "Zoem in op die blok...",
-  "sub pages": "sub bladsye"
+  "sub pages": "sub bladsye",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Wissel om die pop-up van 'Hierarchy Tool' te wys",
+  "Promoting a block to a page": "Bevorder 'n blok na 'n bladsy",
+  "Failed": "Het misluk",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Aktiveer Bullet-konteksmenu 'Bevorder 'n blok na 'n bladsy'",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "As dit via 'n skakelaar gedeaktiveer is, sal dit nie weerspieël word voordat hierdie inprop afgeskakel is nie.",
+  "Create a new page?": "Skep 'n nuwe bladsy?",
+  "Create a new sub-page?": "Skep 'n nuwe subbladsy?"
 }

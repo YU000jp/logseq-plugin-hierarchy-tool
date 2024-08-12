@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Tento blok priblíženia sa zdvihne.",
   "Toggle for hide": "Prepnúť pre skryť",
   "Zooming in on the block...": "Priblíženie bloku...",
-  "sub pages": "Podstránky"
+  "sub pages": "Podstránky",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Prepínač na zobrazenie vyskakovacieho okna \"Nástroj hierarchie\"",
+  "Promoting a block to a page": "Povýšenie blokovania na stránku",
+  "Failed": "Zlyhalo",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Zapnutie kontextovej ponuky Odrážka \"Povýšenie bloku na stránku\"",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Ak je vypnutý pomocou prepínača, neprejaví sa to, kým sa tento doplnok nevypne.",
+  "Create a new page?": "Vytvoriť novú stránku?",
+  "Create a new sub-page?": "Vytvoriť novú podstránku?"
 }

@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Dieser Zoomblock wird aufgehoben.",
   "Toggle for hide": "Umschalten zum Ausblenden",
   "Zooming in on the block...": "Vergrößern Sie den Block...",
-  "sub pages": "Unterseiten"
+  "sub pages": "Unterseiten",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Umschalter zum Anzeigen des Popups von 'Hierarchie-Tool'",
+  "Promoting a block to a page": "Einen Block zu einer Seite heraufstufen",
+  "Failed": "Misslungen",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Aktivieren Sie das Aufzählungszeichen-Kontextmenü \"Einen Block zu einer Seite heraufstufen\"",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Wenn es über einen Schalter deaktiviert wird, wird dies erst angezeigt, wenn dieses Plugin ausgeschaltet wird.",
+  "Create a new page?": "Eine neue Seite erstellen?",
+  "Create a new sub-page?": "Eine neue Unterseite erstellen?"
 }

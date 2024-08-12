@@ -1,13 +1,14 @@
 import '@logseq/libs' //https://plugins-doc.logseq.com/
 import { BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
+import removeMd from "remove-markdown"
 import { clickRefreshButton } from "./button"
 import { icon, keyCommand, keyCreateSubPageButton, keyCssHideHierarchyInPageContent, keyCssHidePageTagsInPageContent, keyRefreshButton, keySettingsButton, keyToggleH1, keyToggleH2, keyToggleH3, keyToggleH4, keyToggleH5, keyToggleH6, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbar, keyToolbarPopupFull } from './key'
 import { removeProvideStyle } from './lib'
 import { openPopupFromToolbar, removePopup } from './popup'
 import { settingsTemplate } from "./settings"
 import cssStyleString from "./style.css?inline"
-import { createSubPage } from './subPage'
+import { createSubPage, createSubPageUserConfirm } from './subPage'
 import { displayHeadersList } from './toc'
 import { hideHeaderFromList, toggleStyleForHideBlock } from "./toggle"
 import af from "./translations/af.json"
@@ -176,7 +177,7 @@ const main = async () => {
   // コマンドパレットにコマンドを登録
   logseq.App.registerCommandPalette({
     key: keyCommand,
-    label: `${t("Toggle Hierarchy Tool Popup")}`,
+    label: `${t("Toggle for showing the popup of 'Hierarchy Tool'")}`,
     keybinding: { binding: 'mod+f1' }
   }, async () => {
     if (parent.document.getElementById(keyToolbarPopupFull))
@@ -184,6 +185,17 @@ const main = async () => {
     else
       openPopupFromToolbar()
   })
+
+
+  //箇条書きコンテキストメニューにコマンドを登録
+  if (logseq.settings!.commandBlockToPage === true)
+    logseq.Editor.registerBlockContextMenuItem(t("Promoting a block to a page"), async ({ uuid }) => {
+      const blockEntity = await logseq.Editor.getBlock(uuid, { includeChildren: false }) as { content: BlockEntity["content"] } | null
+      if (blockEntity)
+        createSubPageUserConfirm(blockEntity.content, uuid, { checkOn: true, asSubPage: false })
+      else
+        logseq.UI.showMsg(t("Failed"), "warning", { timeout: 2000 }) //ブロックとして取得できなかった場合のメッセージ
+    })
 
 
   //ページ読み込み時に実行コールバック

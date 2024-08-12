@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Ta blokada powiększenia zostanie zniesiona.",
   "Toggle for hide": "Przełącz, aby ukryć",
   "Zooming in on the block...": "Powiększanie bloku...",
-  "sub pages": "Podstrony"
+  "sub pages": "Podstrony",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Przełącz, aby wyświetlić wyskakujące okienko \"Narzędzie hierarchii\"",
+  "Promoting a block to a page": "Promowanie bloku na stronie",
+  "Failed": "Nie powiodło się",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Włącz menu kontekstowe punktora \"Promowanie bloku do strony\"",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Jeśli zostanie wyłączona za pomocą przełącznika, nie zostanie to odzwierciedlone, dopóki ta wtyczka nie zostanie wyłączona.",
+  "Create a new page?": "Utworzyć nową stronę?",
+  "Create a new sub-page?": "Utworzyć nową podstronę?"
 }

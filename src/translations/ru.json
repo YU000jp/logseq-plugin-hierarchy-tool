@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Этот блок зума будет снят.",
   "Toggle for hide": "Переключить для скрытия",
   "Zooming in on the block...": "Увеличивая масштаб квартала...",
-  "sub pages": "Подстраницы"
+  "sub pages": "Подстраницы",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Переключитель для отображения всплывающего окна «Инструмент иерархии»",
+  "Promoting a block to a page": "Продвижение блока на страницу",
+  "Failed": "Неудавшийся",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Включите контекстное меню Bullet \"Продвижение блока на страницу\"",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Если отключить с помощью переключателя, это не будет отражено до тех пор, пока этот плагин не будет выключен.",
+  "Create a new page?": "Создать новую страницу?",
+  "Create a new sub-page?": "Создать новую подстраницу?"
 }

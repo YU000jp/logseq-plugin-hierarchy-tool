@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Ce bloc de zoom sera levé.",
   "Toggle for hide": "Bascule pour masquer",
   "Zooming in on the block...": "Zoom sur le pâté de maisons...",
-  "sub pages": "Sous-pages"
+  "sub pages": "Sous-pages",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Bascule pour l’affichage de la fenêtre contextuelle de 'Outil de hiérarchie'",
+  "Promoting a block to a page": "Promouvoir un bloc sur une page",
+  "Failed": "Raté",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Activer le menu contextuel à puces 'Promouvoir un bloc en page'",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "S’il est désactivé via une bascule, cela ne sera pas reflété tant que ce plugin n’est pas désactivé.",
+  "Create a new page?": "Créer une nouvelle page ?",
+  "Create a new sub-page?": "Créer une nouvelle sous-page ?"
 }

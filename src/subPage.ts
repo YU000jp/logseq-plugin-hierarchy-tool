@@ -9,31 +9,40 @@ import { keyDialogCreateSubPageSearchResult, keyToolbarIncrementalSearchResult }
 
 
 // ヘッダーブロックを、サブページに移設する
-export const createSubPageUserConfirm = async (content: string, uuid: string, flag?: { newPageName?: string }) => {
+export const createSubPageUserConfirm = async (content: string, uuid: string, flag?: { newPageName?: string, checkOn?: boolean, asSubPage?: boolean }) => {
   logseq.showMainUI({ autoFocus: true })
   try {
-    const string = content
-      .split("\n")[0]
+    const string = (content.includes("/") ?
+      content.split("\n")[0]
+      : content)
       .trim()
       .replace("[[", "")
       .replace("]]", "")
 
     const newPageName = (flag && flag.newPageName) ?
       flag.newPageName
-      : `${currentPageOriginalName}/${removeMd(string)}`
+      : (flag && flag.asSubPage === false) ?
+        removeMd(string)
+        : `${currentPageOriginalName}/${removeMd(string)}`
 
     const checkboxMsg = document.getElementById("checkboxMsg") as HTMLElement | null
     if (checkboxMsg) {
       checkboxMsg.textContent = t("Insert a link to the sub-page in the original block") + ": " // #checkboxMsgにメッセージを表示する
       checkboxMsg.style.display = "unset"
     }
-    const checkbox = document.getElementById("checkbox") as HTMLElement | null
-    if (checkbox)
+    const checkbox = document.getElementById("checkbox") as HTMLInputElement | null
+    if (checkbox) {
       checkbox.style.display = "unset"
+      if (flag
+        && flag?.checkOn === true)
+        checkbox.checked = true
+    }
 
     // Confirm
     if (await confirmDialog(
-      t("Do you want to create a new sub-page?"),
+      ((flag && flag.asSubPage === false) ?
+        t("Create a new page?")
+        : t("Create a new sub-page?")),
       { inputDefaultValue: newPageName }
     )) {
       const userInput = document.getElementById("input") as HTMLInputElement | null // ユーザー入力値
@@ -91,7 +100,7 @@ export const createSubPageUserConfirm = async (content: string, uuid: string, fl
       } else {
         logseq.UI.showMsg("🔎 " + t("Please enter a name for the sub-page."), "warning", { timeout: 2200 })
         // もう一度、入力を求める
-        setTimeout(() => createSubPageUserConfirm(content, uuid, { newPageName: newPageName }),
+        setTimeout(() => createSubPageUserConfirm(content, uuid, { newPageName }),
           10)
       }
     }

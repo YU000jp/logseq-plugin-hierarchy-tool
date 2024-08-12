@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Blok zoom ini akan diangkat.",
   "Toggle for hide": "Beralih untuk menyembunyikan",
   "Zooming in on the block...": "Memperbesar blok...",
-  "sub pages": "sub halaman"
+  "sub pages": "sub halaman",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Beralih untuk menampilkan popup 'Alat Hierarki'",
+  "Promoting a block to a page": "Mempromosikan pemblokiran ke halaman",
+  "Failed": "Gagal",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Aktifkan menu konteks Bullet 'Mempromosikan blok ke halaman'",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Jika dinonaktifkan melalui sakelar, ini tidak akan tercermin sampai plugin ini dimatikan.",
+  "Create a new page?": "Membuat halaman baru?",
+  "Create a new sub-page?": "Membuat sub-halaman baru?"
 }

@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Denne zoomblokken vil bli løftet.",
   "Toggle for hide": "Veksle for skjul",
   "Zooming in on the block...": "Zoomer inn på blokken ...",
-  "sub pages": "Undersider"
+  "sub pages": "Undersider",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Veksle for å vise popup-vinduet til 'Hierarkiverktøy'",
+  "Promoting a block to a page": "Promotering av blokkeringer på en side",
+  "Failed": "Mislyktes",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Aktiver punktmenyen «Promotere en blokk til en side»",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Hvis det er deaktivert via en bryter, vil dette ikke gjenspeiles før denne plugin-en er slått av.",
+  "Create a new page?": "Opprette en ny side?",
+  "Create a new sub-page?": "Opprette en ny underside?"
 }

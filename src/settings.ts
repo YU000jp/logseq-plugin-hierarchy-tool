@@ -50,6 +50,13 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
         default: "93vh",
         description: "default: 93vh",
     },
+    {// 箇条書きコンテキストにコマンド追加「Promoting a block to a page」
+        key: "commandBlockToPage",
+        title: t("Enable Bullet context menu 'Promoting a block to a page'"),
+        type: "boolean",
+        default: true,
+        description: t("If disabled via a toggle, this will not be reflected until this plugin is switched off."),
+    },
 
 
 

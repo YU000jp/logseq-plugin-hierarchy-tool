@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "此縮放塊將被解除。",
   "Toggle for hide": "切換隱藏",
   "Zooming in on the block...": "放大區...",
-  "sub pages": "子頁面"
+  "sub pages": "子頁面",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "切換以顯示「層次結構工具」 的彈出視窗",
+  "Promoting a block to a page": "將塊提升到頁面",
+  "Failed": "失敗",
+  "Enable Bullet context menu 'Promoting a block to a page'": "啟用 Bullet 上下文功能表“將塊提升到頁面”",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "如果通過切換禁用，則在關閉此外掛程式之前不會反映出來。",
+  "Create a new page?": "創建新頁面？",
+  "Create a new sub-page?": "創建新的子頁面？"
 }

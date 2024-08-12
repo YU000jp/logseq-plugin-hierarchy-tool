@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Bu yakınlaştırma bloğu kaldırılacaktır.",
   "Toggle for hide": "Gizlemek için geçiş yap",
   "Zooming in on the block...": "Bloğu yakınlaştırmak...",
-  "sub pages": "Alt Sayfalar"
+  "sub pages": "Alt Sayfalar",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "'Hiyerarşi Aracı' açılır penceresini göstermek için geçiş yapın",
+  "Promoting a block to a page": "Bir bloğu bir sayfaya yükseltme",
+  "Failed": "Başarısız",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Madde İşareti bağlam menüsünü etkinleştir 'Bir bloğu bir sayfaya yükseltme'",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Bir geçiş ile devre dışı bırakılırsa, bu eklenti kapatılana kadar bu yansıtılmayacaktır.",
+  "Create a new page?": "Yeni bir sayfa mı oluşturacaksınız?",
+  "Create a new sub-page?": "Yeni bir alt sayfa mı oluşturuluyor?"
 }

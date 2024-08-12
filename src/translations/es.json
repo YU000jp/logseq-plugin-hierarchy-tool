@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "Este bloque de zoom se levantará.",
   "Toggle for hide": "Alternar para ocultar",
   "Zooming in on the block...": "Haciendo zoom en el bloque...",
-  "sub pages": "sub páginas"
+  "sub pages": "sub páginas",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "Alternar para mostrar la ventana emergente de 'Herramienta de jerarquía'",
+  "Promoting a block to a page": "Promocionar un bloque a una página",
+  "Failed": "Fracasado",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Habilitar el menú contextual de viñetas 'Promocionar un bloque a una página'",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "Si se deshabilita a través de un interruptor, esto no se reflejará hasta que este complemento esté desactivado.",
+  "Create a new page?": "¿Crear una nueva página?",
+  "Create a new sub-page?": "¿Crear una nueva subpágina?"
 }

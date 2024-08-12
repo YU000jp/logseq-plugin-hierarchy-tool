@@ -52,5 +52,12 @@
   "This zoom block will be lifted.": "이 확대/축소 블록이 해제됩니다.",
   "Toggle for hide": "숨기기 전환/해제",
   "Zooming in on the block...": "블록을 확대하는 중...",
-  "sub pages": "하위 페이지"
+  "sub pages": "하위 페이지",
+  "Toggle for showing the popup of 'Hierarchy Tool'": "'Hierarchy Tool' 팝업을 표시하기 위한 토글",
+  "Promoting a block to a page": "블록을 페이지로 승격",
+  "Failed": "실패",
+  "Enable Bullet context menu 'Promoting a block to a page'": "Bullet 컨텍스트 메뉴 '블록을 페이지로 승격' 활성화",
+  "If disabled via a toggle, this will not be reflected until this plugin is switched off.": "토글을 통해 비활성화하면 이 플러그인이 꺼질 때까지 반영되지 않습니다.",
+  "Create a new page?": "새 페이지를 만드시겠습니까?",
+  "Create a new sub-page?": "새 하위 페이지를 만드시겠습니까?"
 }
