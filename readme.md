@@ -51,6 +51,8 @@ Install from Logseq Marketplace
 1. By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
    > Note: After the block has been relocated, the "backgroundcolor" property indicating the block background colour may remain and the colour may not be applied." Go to the "backgroundcolor" page and rename it to "background-colour".
 1. Shortcut to toggle the pop-up (default: `Ctrl/Cmd + F1`)
+1. Bullet context menu item `Promoting a block to a page`
+   - It can be relocated to a new page, including sub-blocks.
 
 #### Note
 
