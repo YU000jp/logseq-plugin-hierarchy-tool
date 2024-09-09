@@ -4,6 +4,9 @@
   1. ヘッダーごとに分割し、情報量の増えてしまった包括的なページを、サブページに分割するワークフローを提供します。
   1. 階層やヘッダーが使われている包括的なページを、表示または分割するために最適化された目次機能があります！
 
+> [!WARNING]
+>現在、このプラグインはLogseq dbバージョンでは動作しません。このプラグインが機能するように修正する予定です。
+
 <div align="right">
  
 [English](https://github.com/YU000jp/logseq-plugin-hierarchy-tool) / [日本語](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-hierarchy-tool)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases) [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-hierarchy-tool?color=blue)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/LICENSE) [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-hierarchy-tool/total.svg)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases)

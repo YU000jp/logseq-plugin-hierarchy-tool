@@ -4,6 +4,9 @@
   1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
   1. A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
 
+> [!WARNING]
+This plugin does not work with Logseq db version now. We will fix this plugin so that it works.
+
 <div align="right">
  
 [English](https://github.com/YU000jp/logseq-plugin-hierarchy-tool) / [日本語](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-hierarchy-tool)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases) [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-hierarchy-tool?color=blue)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/LICENSE) [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-hierarchy-tool/total.svg)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases)
