@@ -273,8 +273,8 @@ export const displayHeadersList = async (pageUuid?: PageEntity["uuid"]) => {
         // ページでもなく、ズームページでもない場合 または、ページ名が取得できない場合
         // メッセージを表示して、ポップアップを閉じる
         noHeadersFound(popupElement)
-        setTimeout(() => removePopup(),
-          2000)
+        // setTimeout(() => removePopup(),
+        //   2000)
         return
 
       } else {
