@@ -1,6 +1,7 @@
 # Logseq Plugin: Hierarchy Tool (TOC)
 
 - Powerful tool for users who use **hierarchy** in Logseq.
+  1. Follow the hierarchy of pages without having to open them
   1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
   1. A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
 
