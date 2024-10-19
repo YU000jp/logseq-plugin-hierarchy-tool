@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.0.3...v1.1.0) (2024-10-19)
+
+
+### Bug Fixes
+
+* Changed to not close when page information is not found. ([9cc7b51](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/9cc7b519bbfd3b0534e2d41a28f3ab811135c8d8))
+* Changed to not close when page information is not found. ([f793fa5](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/f793fa51175c3480072352895de026b54f509889))
+
+
+### Features
+
+* **Add:** Bullet context menu item `Promoting a block to a page` ([31e2d42](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/31e2d422d49052f6609a23ee6b5fd4f62aceb774))
+
 ## [1.0.3](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.0.2...v1.0.3) (2024-08-11)
 
 
