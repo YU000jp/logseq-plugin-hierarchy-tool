@@ -1,11 +1,9 @@
 # Logseq Plugin: Hierarchy Tool (TOC)
 
-- Powerful tool for users who use **hierarchy** in Logseq.
-  1. split by header to provide a workflow for splitting a comprehensive page into sub-pages with increased information content.
-  1. A table of contents facility optimised for displaying or splitting comprehensive pages where hierarchies or headers are used!
+A powerful tool for managing hierarchical pages  in Logseq
 
-> [!WARNING]
-This plugin does not work with Logseq db version now. We will fix this plugin so that it works.
+> [!WARNING]  
+> This plugin is NOT compatible with Logseq DB version and will remain incompatible.
 
 <div align="right">
  
@@ -13,24 +11,20 @@ This plugin does not work with Logseq db version now. We will fix this plugin so
 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
  </div>
 
-## Overview
+## ✨ Key Features
 
-<table><tr><td>
+1. **Smart Page Search**
+   - Quick incremental search across all pages
+   - Find pages instantly as you type
 
-- Find the page you are looking for by relying on hierarchy, without opening the page.
-  ### **Incremental Page Search**
-     - Page search function. Lists pages that match the text input.
-  ### **Page Connection**
-     - Lists pages related to the currently opened page.
-     - Display of links to lower levels (Namespace) and page tags in pop-ups, rather than below the page content.
-### **Table of Contents with Sub-pages**
-   - Table of contents functionality with integrated sub-pages as well.
-     > Functions as a zoom-in to a block, rather than scrolling within a page.
-   - Support for creating a sub-page and moving blocks
+2. **Intelligent Page Connections**
+   - View related pages in a clean interface
+   - Navigate hierarchies (Namespaces) and tags efficiently
 
-</td>
-<td><img src="https://github.com/user-attachments/assets/acaa22a4-8b3d-4934-aea2-201d924f9c46" height="800px" width="350px" /></td>
-</tr></table>
+3. **Enhanced Table of Contents**
+   - Seamlessly integrate with sub-pages
+   - Smart block zoom navigation
+   - Quick sub-page creation and block management
 
 ---
 
@@ -47,15 +41,20 @@ Install from Logseq Marketplace
 . The 🏢 button will then appear on the toolbar.
 - In the table of contents, the block is opened by zooming in, but within Page Connections, the page does not open directly for moving up or down the hierarchy. (Ctrl+click to open as a page).
 
+## 🚀 Quick Tips
 
-#### Tip
+1. **Create Sub-pages**: Click ➕ next to page names for quick sub-page creation
+2. **Smart Block Movement**: Ctrl+click headers to move blocks to sub-pages
+3. **Quick Access**: Use `Ctrl/Cmd + F1` to toggle the popup
+4. **Block Promotion**: Right-click any bullet to promote it to a page
 
-1. press the ➕ button next to the page name to create a sub-page. Similar page names will be displayed as suggestions.
-1. By Ctrl+clicking on a header in the table of contents, the block with the header and its sub-blocks can be moved to a sub-page.
-   > Note: After the block has been relocated, the "backgroundcolor" property indicating the block background colour may remain and the colour may not be applied." Go to the "backgroundcolor" page and rename it to "background-colour".
-1. Shortcut to toggle the pop-up (default: `Ctrl/Cmd + F1`)
-1. Bullet context menu item `Promoting a block to a page`
-   - It can be relocated to a new page, including sub-blocks.
+## ⚠️ Important Notes
+
+- Plugin auto-hides hierarchy/tags display to prevent conflicts
+- Close popup when using sidebars to avoid overlap
+- Performance may vary with page size and embedded content
+- Disable other TOC plugins for best experience
+- Compatible with Side Block plugin (add `#.side(-[a-z])?` in settings)
 
 #### Note
 

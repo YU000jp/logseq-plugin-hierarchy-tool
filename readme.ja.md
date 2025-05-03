@@ -1,17 +1,30 @@
 # Logseq プラグイン: Hierarchy Tool (TOC)
 
-- Logseqで「**階層**」を使用するユーザーのための強力なツール。
-  1. ヘッダーごとに分割し、情報量の増えてしまった包括的なページを、サブページに分割するワークフローを提供します。
-  1. 階層やヘッダーが使われている包括的なページを、表示または分割するために最適化された目次機能があります！
+Logseqで階層ページを効率的に管理するための強力なツール
 
 > [!WARNING]
->現在、このプラグインはLogseq dbバージョンでは動作しません。このプラグインが機能するように修正する予定です。
+> このプラグインは Logseq DB バージョンとは互換性がなく、今後も対応の予定はありません。
 
 <div align="right">
  
 [English](https://github.com/YU000jp/logseq-plugin-hierarchy-tool) / [日本語](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/blob/main/readme.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-hierarchy-tool)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases) [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-hierarchy-tool?color=blue)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/LICENSE) [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-hierarchy-tool/total.svg)](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/releases)
 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
  </div>
+
+## ✨ 主な機能
+
+1. **ページ検索**
+   - 全ページをすばやく検索
+   - 入力しながらリアルタイムで結果表示
+
+2. **ページコネクション**
+   - 関連ページをクリーンに表示
+   - 階層（名前空間）とタグの効率的なナビゲーション
+
+3. **強化された目次機能**
+   - サブページとのシームレスな統合
+   - スマートなブロックズーム操作
+   - クイックサブページ作成とブロック管理
 
 ## 概要
 
@@ -47,6 +60,21 @@ Logseq マーケットプレイスからインストール
    > 最初、このボタンはLogseqによって非表示にされています。ツールバーのこのボタン (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) をクリックし、その後、この ![image](https://github.com/user-attachments/assets/5445bf64-6c5c-4dcf-981c-ad3ec176930f) を選択します。その後、ツールバーに 🏢 ボタンが表示されます。
 - 目次では、ブロックをズームインで開きますが、ページコネクション内では、階層の上下移動のために、ページが直接開かないようになっています。(Ctrl+クリックでページとして開きます)
 
+
+## 🚀 使用のヒント
+
+1. **サブページ作成**: ページ名横の➕で素早くサブページを作成
+2. **スマートなブロック移動**: ヘッダーをCtrl+クリックでサブページに移動
+3. **クイックアクセス**: `Ctrl/Cmd + F1`でポップアップ切り替え
+4. **ブロック昇格**: 箇条書きを右クリックでページに昇格
+
+## ⚠️ 注意事項
+
+- 競合を防ぐため、階層/タグ表示は自動的に非表示
+- サイドバー使用時はポップアップを閉じる
+- ページサイズや埋め込みコンテンツにより性能が変動
+- 他のTOCプラグインは無効化推奨
+- Side Blockプラグインと互換（設定で`#.side(-[a-z])?`を追加）
 
 #### Tip
 
