@@ -5,6 +5,13 @@
 
 * Not Support Logseq DB model ([9d71d50](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/9d71d509dcb489f37e3827c1cbb606241782eee6))
 
+# [1.2.0](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.1.0...v1.2.0) (2025-06-08)
+
+
+### Features
+
+* Not Support Logseq DB model ([9d71d50](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/9d71d509dcb489f37e3827c1cbb606241782eee6))
+
 # [1.1.0](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.0.3...v1.1.0) (2024-10-19)
 
 
