@@ -142,7 +142,7 @@ const main = async () => {
 
   if (logseqVersionMd === false) {
     // Logseq ver 0.10.*以下にしか対応していない
-    logseq.UI.showMsg("The ’Bullet Point Custom Icon’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
+    logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
     return
   }
 
