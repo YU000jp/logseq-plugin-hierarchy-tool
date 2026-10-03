@@ -1,5 +1,5 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { AppInfo, BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
+import { BlockEntity, LSPluginBaseInfo, PageEntity } from '@logseq/libs/dist/LSPlugin.user'
 import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import { clickRefreshButton } from "./button"
 import { icon, keyCommand, keyCreateSubPageButton, keyCssHideHierarchyInPageContent, keyCssHidePageTagsInPageContent, keyRefreshButton, keySettingsButton, keyToggleH1, keyToggleH2, keyToggleH3, keyToggleH4, keyToggleH5, keyToggleH6, keyToggleStyleForHideBlock, keyToggleSubPage, keyToolbar, keyToolbarPopupFull } from './key'
@@ -123,26 +123,23 @@ const cssCodeHidePageTagsInPageContent = `
 `
 
 
-let logseqVersion: string = "" //バージョンチェック用
-let logseqVersionMd: boolean = false //バージョンチェック用
-// export const getLogseqVersion = () => logseqVersion //バージョンチェック用
-export const booleanLogseqVersionMd = () => logseqVersionMd //バージョンチェック用
+let logseqVersionMd: boolean = false //現在のグラフがファイルベースかどうか(DBグラフはfalse)
+export const booleanLogseqVersionMd = () => logseqVersionMd //グラフ種別チェック用
 
 
 /* main */
 const main = async () => {
 
 
-    // バージョンチェック
-  logseqVersionMd = await checkLogseqVersion()
-  // console.log("logseq version: ", logseqVersion)
-  // console.log("logseq version is MD model: ", logseqVersionMd)
+    // グラフ種別チェック(DBグラフは非対応)
+  logseqVersionMd = !(await checkLogseqDbGraph())
+  // console.log("logseq graph is file-based: ", logseqVersionMd)
   // 100ms待つ
   await new Promise(resolve => setTimeout(resolve, 100))
 
   if (logseqVersionMd === false) {
-    // Logseq ver 0.10.*以下にしか対応していない
-    logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
+    // ファイルベースのグラフにしか対応していない
+    logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
     return
   }
 
@@ -288,6 +285,11 @@ const main = async () => {
 
   // グラフが変更されたときの処理
   logseq.App.onCurrentGraphChanged(async () => {
+    // グラフ種別を再検出してフラグを更新
+    logseqVersionMd = !(await checkLogseqDbGraph())
+    if (logseqVersionMd === false)
+      // ファイルベースのグラフにしか対応していない
+      logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
     removePopup()
     currentPageOriginalName = ""
     currentPageName = ""
@@ -295,7 +297,8 @@ const main = async () => {
     currentBlockUuid = ""
     currentPageProperties = {}
     setTimeout(() => {
-      if (logseq.settings!.autoPopup === true)
+      if (logseqVersionMd === true
+        && logseq.settings!.autoPopup === true)
         openPopupFromToolbar()
     }, 10)
   })/* end_onCurrentGraphChanged */
@@ -313,23 +316,14 @@ const routeCheck = () => {
 }
 
 
-// MDモデルかどうかのチェック DBモデルはfalse
-const checkLogseqVersion = async (): Promise<boolean> => {
-  const logseqInfo = (await logseq.App.getInfo("version")) as AppInfo | any
-  //  0.11.0もしくは0.11.0-alpha+nightly.20250427のような形式なので、先頭の3つの数値(1桁、2桁、2桁)を正規表現で取得する
-  const version = logseqInfo.match(/(\d+)\.(\d+)\.(\d+)/)
-  if (version) {
-    logseqVersion = version[0] //バージョンを取得
-    // console.log("logseq version: ", logseqVersion)
-
-    // もし バージョンが0.10.*系やそれ以下ならば、logseqVersionMdをtrueにする
-    if (logseqVersion.match(/0\.([0-9]|10)\.\d+/)) {
-      logseqVersionMd = true
-      // console.log("logseq version is 0.10.* or lower")
-      return true
-    } else logseqVersionMd = false
-  } else logseqVersion = "0.0.0"
-  return false
+// 現在のグラフがDBグラフかどうかのチェック(公式API。0.10.x等の古いホストでは未実装 → false)
+const checkLogseqDbGraph = async (): Promise<boolean> => {
+  try {
+    const value = await (logseq.App as any).checkCurrentIsDbGraph()
+    return typeof value === "boolean" ? value : false
+  } catch {
+    return false // API非搭載ホスト = DBグラフを開けない旧アプリ
+  }
 }
 
 logseq.ready(main).catch(console.error)
