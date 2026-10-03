@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.2.0...v1.2.1) (2026-10-03)
+
+
+### Bug Fixes
+
+* DBグラフでの起動・切替時のガードを強化し、ファイルグラフへの切替で遅延初期化 ([49bb4c3](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/49bb4c31a28b40963e02cc0a68bca45803f2d54c))
+* グラフ種別の判定を公式APIに置き換え、ファイルグラフなら全アプリ世代で動作するよう修正 ([7bb269a](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/commit/7bb269a59ddafb91cf9d31701e5aa2879a67e29e))
+
 # [1.2.0](https://github.com/YU000jp/logseq-plugin-hierarchy-tool/compare/v1.1.0...v1.2.0) (2025-06-08)
 
 
