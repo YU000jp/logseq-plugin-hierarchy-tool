@@ -126,6 +126,8 @@ const cssCodeHidePageTagsInPageContent = `
 let logseqVersionMd: boolean = false //現在のグラフがファイルベースかどうか(DBグラフはfalse)
 export const booleanLogseqVersionMd = () => logseqVersionMd //グラフ種別チェック用
 
+let pluginInitialized = false //初期化済みかどうか(DBグラフで起動した場合の遅延初期化用)
+
 
 /* main */
 const main = async () => {
@@ -137,11 +139,57 @@ const main = async () => {
   // 100ms待つ
   await new Promise(resolve => setTimeout(resolve, 100))
 
+  // グラフが変更されたときの処理
+  // (DBグラフで起動した場合でもファイルグラフへの切替で初期化できるよう、ゲートより先に登録する)
+  logseq.App.onCurrentGraphChanged(async () => {
+    // グラフ種別を再検出してフラグを更新
+    logseqVersionMd = !(await checkLogseqDbGraph())
+    removePopup()
+    currentPageOriginalName = ""
+    currentPageName = ""
+    currentPageUuid = ""
+    currentBlockUuid = ""
+    currentPageProperties = {}
+    if (logseqVersionMd === false) {
+      // ファイルベースのグラフにしか対応していない
+      logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
+      return
+    }
+    if (pluginInitialized === false) {
+      await initializePlugin() // DBグラフで起動していた場合の初回初期化
+      return
+    }
+    setTimeout(() => {
+      if (logseq.settings!.autoPopup === true)
+        openPopupFromToolbar()
+    }, 10)
+  })/* end_onCurrentGraphChanged */
+
   if (logseqVersionMd === false) {
     // ファイルベースのグラフにしか対応していない
     logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
     return
   }
+
+  await initializePlugin()
+
+}/* end_main */
+
+
+// DBグラフ上での操作をガードする(未対応グラフでのクエリやページ作成を防ぐ)
+const guardOnDbGraph = (fn: () => void) => () => {
+  if (logseqVersionMd === false)
+    // ファイルベースのグラフにしか対応していない
+    logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
+  else
+    fn()
+}
+
+
+/* initializePlugin プラグイン機能の初期化(ファイルグラフでのみ呼ぶ) */
+const initializePlugin = async () => {
+  if (pluginInitialized === true) return
+  pluginInitialized = true
 
   //多言語化 L10N
   await l10nSetup({
@@ -166,18 +214,18 @@ const main = async () => {
 
   //クリックイベント
   logseq.provideModel({
-    [keyToolbar]: () => openPopupFromToolbar(),//ツールバーのボタンをクリックしたら、ポップアップを表示
-    [keyRefreshButton]: () => displayHeadersList(),//リフレッシュボタンを押したらポップアップの本文をリフレッシュ
+    [keyToolbar]: guardOnDbGraph(() => openPopupFromToolbar()),//ツールバーのボタンをクリックしたら、ポップアップを表示
+    [keyRefreshButton]: guardOnDbGraph(() => displayHeadersList()),//リフレッシュボタンを押したらポップアップの本文をリフレッシュ
     [keySettingsButton]: () => logseq.showSettingsUI(),//設定ボタンを押したら設定画面を表示
-    [keyCreateSubPageButton]: () => createSubPage(),//サブページを作成
-    [keyToggleStyleForHideBlock]: () => toggleStyleForHideBlock(),// サブブロックを非表示にするスタイルをトグル
-    [keyToggleSubPage]: () => hideHeaderFromList("subPage"),//サブページの表示・非表示
-    [keyToggleH1]: () => hideHeaderFromList("H1"),//h1の表示・非表示
-    [keyToggleH2]: () => hideHeaderFromList("H2"),//h2の表示・非表示
-    [keyToggleH3]: () => hideHeaderFromList("H3"),//h3の表示・非表示
-    [keyToggleH4]: () => hideHeaderFromList("H4"),//h4の表示・非表示
-    [keyToggleH5]: () => hideHeaderFromList("H5"),//h5の表示・非表示
-    [keyToggleH6]: () => hideHeaderFromList("H6"),//h6の表示・非表示
+    [keyCreateSubPageButton]: guardOnDbGraph(() => createSubPage()),//サブページを作成
+    [keyToggleStyleForHideBlock]: guardOnDbGraph(() => toggleStyleForHideBlock()),// サブブロックを非表示にするスタイルをトグル
+    [keyToggleSubPage]: guardOnDbGraph(() => hideHeaderFromList("subPage")),//サブページの表示・非表示
+    [keyToggleH1]: guardOnDbGraph(() => hideHeaderFromList("H1")),//h1の表示・非表示
+    [keyToggleH2]: guardOnDbGraph(() => hideHeaderFromList("H2")),//h2の表示・非表示
+    [keyToggleH3]: guardOnDbGraph(() => hideHeaderFromList("H3")),//h3の表示・非表示
+    [keyToggleH4]: guardOnDbGraph(() => hideHeaderFromList("H4")),//h4の表示・非表示
+    [keyToggleH5]: guardOnDbGraph(() => hideHeaderFromList("H5")),//h5の表示・非表示
+    [keyToggleH6]: guardOnDbGraph(() => hideHeaderFromList("H6")),//h6の表示・非表示
   })
 
 
@@ -196,6 +244,11 @@ const main = async () => {
     label: `${t("Toggle for showing the popup of 'Hierarchy Tool'")}`,
     keybinding: { binding: 'mod+f1' }
   }, async () => {
+    if (logseqVersionMd === false) {
+      // ファイルベースのグラフにしか対応していない
+      logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
+      return
+    }
     if (parent.document.getElementById(keyToolbarPopupFull))
       removePopup()
     else
@@ -206,6 +259,11 @@ const main = async () => {
   //箇条書きコンテキストメニューにコマンドを登録
   if (logseq.settings!.commandBlockToPage === true)
     logseq.Editor.registerBlockContextMenuItem(t("Promoting a block to a page"), async ({ uuid }) => {
+      if (logseqVersionMd === false) {
+        // ファイルベースのグラフにしか対応していない
+        logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
+        return
+      }
       const blockEntity = await logseq.Editor.getBlock(uuid, { includeChildren: false }) as { content: BlockEntity["content"] } | null
       if (blockEntity)
         createSubPageUserConfirm(blockEntity.content, uuid, { checkOn: true, asSubPage: false })
@@ -275,35 +333,15 @@ const main = async () => {
     if (newSet.popupWidth !== oldSet.popupWidth
       || newSet.popupHeight !== oldSet.popupHeight) {
       removePopup()
-      setTimeout(() =>
-        openPopupFromToolbar()
-        , 10)
+      if (logseqVersionMd === true)
+        setTimeout(() =>
+          openPopupFromToolbar()
+          , 10)
     }
 
   })/* end_onSettingsChanged */
 
-
-  // グラフが変更されたときの処理
-  logseq.App.onCurrentGraphChanged(async () => {
-    // グラフ種別を再検出してフラグを更新
-    logseqVersionMd = !(await checkLogseqDbGraph())
-    if (logseqVersionMd === false)
-      // ファイルベースのグラフにしか対応していない
-      logseq.UI.showMsg("The ’Hierarchy Tool’ plugin only supports file-based graphs.", "warning", { timeout: 5000 })
-    removePopup()
-    currentPageOriginalName = ""
-    currentPageName = ""
-    currentPageUuid = ""
-    currentBlockUuid = ""
-    currentPageProperties = {}
-    setTimeout(() => {
-      if (logseqVersionMd === true
-        && logseq.settings!.autoPopup === true)
-        openPopupFromToolbar()
-    }, 10)
-  })/* end_onCurrentGraphChanged */
-
-}/* end_main */
+}/* end_initializePlugin */
 
 
 //ページ遷移時に実行
